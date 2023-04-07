@@ -9,10 +9,10 @@
 using namespace std;
 
 
-//void symbolFrequencies(string& text) { //частоти символів 
-//	unordered_map<char, int> freq;//контейнер для елементів 
+//void symbolFrequencies(string& text) { //С‡Р°СЃС‚РѕС‚Рё СЃРёРјРІРѕР»С–РІ 
+//	unordered_map<char, int> freq;//РєРѕРЅС‚РµР№РЅРµСЂ РґР»СЏ РµР»РµРјРµРЅС‚С–РІ 
 //	for (const char& c : text)
-//		freq[c]++;// добавляемо елементи до контецнеру 
+//		freq[c]++;// РґРѕР±Р°РІР»СЏРµРјРѕ РµР»РµРјРµРЅС‚Рё РґРѕ РєРѕРЅС‚РµС†РЅРµСЂСѓ 
 //
 //	for (auto& pair : freq) {
 //		v++;
@@ -22,7 +22,7 @@ using namespace std;
 
 
 
-string filterWithoutSpace(string& text, string& ABC) { //метод фильтрации текста без пробелов 
+string filterWithoutSpace(string& text, string& ABC) { //РјРµС‚РѕРґ С„РёР»СЊС‚СЂР°С†РёРё С‚РµРєСЃС‚Р° Р±РµР· РїСЂРѕР±РµР»РѕРІ 
 
 	string filterText = "";
 	for (char c : text)
@@ -30,12 +30,12 @@ string filterWithoutSpace(string& text, string& ABC) { //метод фильтрации текста
 		char v = tolower(c);
 
 
-		if (ABC.find(v) != string::npos)  //проверяет, является ли данный символ алфавитом или нет
+		if (ABC.find(v) != string::npos)  //РїСЂРѕРІРµСЂСЏРµС‚, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РґР°РЅРЅС‹Р№ СЃРёРјРІРѕР» Р°Р»С„Р°РІРёС‚РѕРј РёР»Рё РЅРµС‚
 		{
 			filterText += v;
 		}
 		else if (isspace(v)) {
-			continue; //пропускаем пробелы 
+			continue; //РїСЂРѕРїСѓСЃРєР°РµРј РїСЂРѕР±РµР»С‹ 
 		}
 	}
 
@@ -45,20 +45,20 @@ string filterWithoutSpace(string& text, string& ABC) { //метод фильтрации текста
 string filterSpace(string& text, string& ABC) {
 	string filteredText = "";
 
-	regex pattern("\\s+");//для нахождения последовательности пробелов 
-	string result = regex_replace(text, pattern, " ");  // заміна на один пробіл
+	regex pattern("\\s+");//РґР»СЏ РЅР°С…РѕР¶РґРµРЅРёСЏ РїРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚Рё РїСЂРѕР±РµР»РѕРІ 
+	string result = regex_replace(text, pattern, " ");  // Р·Р°РјС–РЅР° РЅР° РѕРґРёРЅ РїСЂРѕР±С–Р»
 
 	for (char& c : result) {
 		char v = tolower(c);
 
 
-		if (ABC.find(v) != string::npos)  //проверяет, является ли данный символ алфавитом или нет
+		if (ABC.find(v) != string::npos)  //РїСЂРѕРІРµСЂСЏРµС‚, СЏРІР»СЏРµС‚СЃСЏ Р»Рё РґР°РЅРЅС‹Р№ СЃРёРјРІРѕР» Р°Р»С„Р°РІРёС‚РѕРј РёР»Рё РЅРµС‚
 		{
 			filteredText += v;
 
 		}
 		else if (isspace(v)) {
-			filteredText += ' '; //+ пробелы 
+			filteredText += ' '; //+ РїСЂРѕР±РµР»С‹ 
 		}
 	}
 	if (filteredText.back() == ' ') {
@@ -72,24 +72,24 @@ string filterSpace(string& text, string& ABC) {
 
 
 string Text() {
-	//string str1 = " Карл у Клары Украл корали ,Карла у Карлы украла кларнет  ";
+	//string str1 = " РљР°СЂР» Сѓ РљР»Р°СЂС‹ РЈРєСЂР°Р» РєРѕСЂР°Р»Рё ,РљР°СЂР»Р° Сѓ РљР°СЂР»С‹ СѓРєСЂР°Р»Р° РєР»Р°СЂРЅРµС‚  ";
 	string path = "..\\file.txt";
 	ifstream fin;
 	fin.open(path);
 	string res = "";
 	if (!fin.is_open()) {
-		cout << "Ошибка вывода файла " << endl;
+		cout << "РћС€РёР±РєР° РІС‹РІРѕРґР° С„Р°Р№Р»Р° " << endl;
 	}
 	else
 	{
-		cout << "Файл открыт" << endl;
+		cout << "Р¤Р°Р№Р» РѕС‚РєСЂС‹С‚" << endl;
 		//char ch;
-		//fin.get(ch) выводит данные по символьно 
+		//fin.get(ch) РІС‹РІРѕРґРёС‚ РґР°РЅРЅС‹Рµ РїРѕ СЃРёРјРІРѕР»СЊРЅРѕ 
 
 		string str;
-		while (!fin.eof()) // отлвливает конец вайла 
+		while (!fin.eof()) // РѕС‚Р»РІР»РёРІР°РµС‚ РєРѕРЅРµС† РІР°Р№Р»Р° 
 		{
-			str = ""; //для корректного счетия	
+			str = ""; //РґР»СЏ РєРѕСЂСЂРµРєС‚РЅРѕРіРѕ СЃС‡РµС‚РёСЏ	
 			getline(fin, str);
 			res += str;
 		}
@@ -103,19 +103,19 @@ string Text() {
 }
 
 double indexOfCoincidence(string& text) {
-	unordered_map<char, int> freqs; // unordered_map для хранения частот каждой буквы
-	long long int total = 0; // общее количество букв в тексте
-	long double ic = 0.0; // индекс совпадений
+	unordered_map<char, int> freqs; // unordered_map РґР»СЏ С…СЂР°РЅРµРЅРёСЏ С‡Р°СЃС‚РѕС‚ РєР°Р¶РґРѕР№ Р±СѓРєРІС‹
+	long long int total = 0; // РѕР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ Р±СѓРєРІ РІ С‚РµРєСЃС‚Рµ
+	long double ic = 0.0; // РёРЅРґРµРєСЃ СЃРѕРІРїР°РґРµРЅРёР№
 
-	// подсчет частот каждой буквы
+	// РїРѕРґСЃС‡РµС‚ С‡Р°СЃС‚РѕС‚ РєР°Р¶РґРѕР№ Р±СѓРєРІС‹
 	for (char c : text) {
-		if (c >= 'а' && c <= 'я') {
-			freqs[c]++; // увеличиваем частоту символа на 1
-			total++; // увеличиваем счетчик символов на 1
+		if (c >= 'Р°' && c <= 'СЏ') {
+			freqs[c]++; // СѓРІРµР»РёС‡РёРІР°РµРј С‡Р°СЃС‚РѕС‚Сѓ СЃРёРјРІРѕР»Р° РЅР° 1
+			total++; // СѓРІРµР»РёС‡РёРІР°РµРј СЃС‡РµС‚С‡РёРє СЃРёРјРІРѕР»РѕРІ РЅР° 1
 		}
 	}
 
-	// расчет индекса совпадений
+	// СЂР°СЃС‡РµС‚ РёРЅРґРµРєСЃР° СЃРѕРІРїР°РґРµРЅРёР№
 	for (auto& pair : freqs) {
 		ic += pair.second * (pair.second - 1);
 	}
@@ -128,16 +128,16 @@ double indexOfCoincidence(string& text) {
 void Log() {
 	string res = Text();
 
-	string ABC = "абвгдежзийклмнопрстуфхцчшщъыьэюя";
-	string withoutSpace = filterWithoutSpace(res, ABC); //без них
+	string ABC = "Р°Р±РІРіРґРµР¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЉС‹СЊСЌСЋСЏ";
+	string withoutSpace = filterWithoutSpace(res, ABC); //Р±РµР· РЅРёС…
 	//cout<<withoutSpace<<endl;
-	string withSpace = filterSpace(res, ABC);//  с пробелами
+	string withSpace = filterSpace(res, ABC);//  СЃ РїСЂРѕР±РµР»Р°РјРё
 	//cout << withSpace << endl;
 	double ic = indexOfCoincidence(withSpace);
-	cout << "Индекс совпадений с пробелами: \t" << ic << endl;
+	cout << "РРЅРґРµРєСЃ СЃРѕРІРїР°РґРµРЅРёР№ СЃ РїСЂРѕР±РµР»Р°РјРё: \t" << ic << endl;
 
 	double ic1 = indexOfCoincidence(withoutSpace);
-	cout << "Индекс совпадений без пробелов: \t" << ic1 << endl;
+	cout << "РРЅРґРµРєСЃ СЃРѕРІРїР°РґРµРЅРёР№ Р±РµР· РїСЂРѕР±РµР»РѕРІ: \t" << ic1 << endl;
 
 }
 
